@@ -4,12 +4,12 @@ import br.com.utilitarios.Util;
 
 public class Conta {
 	public static int contadorDeContas;
-	private int agencia;
+	private String agencia;
 	private Cliente cliente;
 	private int numeroConta;
 	private double saldo = 0.0;
 	public Conta(Cliente cliente) {
-		this.agencia = 0001-1;
+		this.agencia = "0001-1";
 		this.cliente = cliente;
 		this.numeroConta = contadorDeContas;
 		contadorDeContas += 1;
@@ -20,10 +20,10 @@ public class Conta {
 	public static void setContadorDeContas(int contadorDeContas) {
 		Conta.contadorDeContas = contadorDeContas;
 	}
-	public int getAgencia() {
+	public String getAgencia() {
 		return agencia;
 	}
-	public void setAgencia(int agencia) {
+	public void setAgencia(String agencia) {
 		this.agencia = agencia;
 	}
 	public Cliente getCliente() {
@@ -50,6 +50,34 @@ public class Conta {
 				"\ncpf: " + this.cliente.getCpf() +
 				"\nEmail: " + this.cliente.getEmail() +
 				"\nSaldo: " + Util.doubleToString(this.getSaldo());
+	}
+	
+	public void depositar(double valor) {
+		if(valor > 0) {
+			setSaldo(getSaldo()+ valor);
+			System.out.println("Seu deposito foi realizado com sucesso!");
+		}else {
+			System.err.println("Não foi possível realizar a operação!");
+		}
+	}
+	public void sacar(double valor) {
+		if(valor > 0 && this.getSaldo() >= valor) {
+			setSaldo(getSaldo() - valor);
+			System.out.println("Seu saque foi realizado com sucesso!");
+		}
+		else {
+			System.err.println("Não foi possível realizar a operação!");
+		}
+	}
+	public void transferir(Conta contaParaDeposito, double valor) {
+		if(valor > 0 && this.getSaldo() >= valor) {
+			setSaldo(getSaldo() - valor);
+			contaParaDeposito.saldo = contaParaDeposito.getSaldo() + valor;
+			System.out.println("Transferência realizado com sucesso!");
+		}
+		else {
+			System.err.println("Não foi possível realizar a operação!");
+		}
 	}
 	
 	
