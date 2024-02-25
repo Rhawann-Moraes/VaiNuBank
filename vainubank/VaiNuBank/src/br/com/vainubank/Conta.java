@@ -5,6 +5,8 @@ public class Conta {
 	String nomeTitular;
 	String numeroConta;
 	String cpf;
-	Double saldo;
+	double saldo;
+	
+	
 	
 }
