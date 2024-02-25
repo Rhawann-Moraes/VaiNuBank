@@ -1,7 +1,7 @@
 package br.com.vainubank;
 
 public class Cliente {
-	private static int count= 1;
+	public static int count= 1;
 	
 	private String nome;
 	private String cpf;
