@@ -9,7 +9,7 @@ public class Conta {
 	private int numeroConta;
 	private double saldo = 0.0;
 	public Conta(Cliente cliente) {
-		this.agencia = "0001-1";
+		this.agencia = "0001";
 		this.cliente = cliente;
 		this.numeroConta = contadorDeContas;
 		contadorDeContas += 1;
@@ -51,7 +51,6 @@ public class Conta {
 				"\nEmail: " + this.cliente.getEmail() +
 				"\nSaldo: " + Util.doubleToString(this.getSaldo());
 	}
-	
 	public void depositar(double valor) {
 		if(valor > 0) {
 			setSaldo(getSaldo()+ valor);
@@ -72,15 +71,12 @@ public class Conta {
 	public void transferir(Conta contaParaDeposito, double valor) {
 		if(valor > 0 && this.getSaldo() >= valor) {
 			setSaldo(getSaldo() - valor);
-			contaParaDeposito.saldo = contaParaDeposito.getSaldo() + valor;
+			contaParaDeposito.setSaldo(contaParaDeposito.getSaldo() + valor);
 			System.out.println("Transferência realizado com sucesso!");
 		}
 		else {
 			System.err.println("Não foi possível realizar a operação!");
 		}
 	}
-	
-	
-	
 	
 }
