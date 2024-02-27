@@ -53,7 +53,7 @@ public class Conta {
 	}
 	public void depositar(double valor) {
 		if(valor > 0) {
-			setSaldo(getSaldo()+ valor);
+			this.setSaldo(this.getSaldo()+ valor);
 			System.out.println("Seu deposito foi realizado com sucesso!");
 		}else {
 			System.err.println("Não foi possível realizar a operação!");
@@ -61,7 +61,7 @@ public class Conta {
 	}
 	public void sacar(double valor) {
 		if(valor > 0 && this.getSaldo() >= valor) {
-			setSaldo(getSaldo() - valor);
+			this.setSaldo(this.getSaldo() - valor);
 			System.out.println("Seu saque foi realizado com sucesso!");
 		}
 		else {
@@ -70,7 +70,7 @@ public class Conta {
 	}
 	public void transferir(Conta contaParaDeposito, double valor) {
 		if(valor > 0 && this.getSaldo() >= valor) {
-			setSaldo(getSaldo() - valor);
+			this.setSaldo(this.getSaldo() - valor);
 			contaParaDeposito.setSaldo(contaParaDeposito.getSaldo() + valor);
 			System.out.println("Transferência realizado com sucesso!");
 		}

@@ -10,9 +10,9 @@ public class ContaPoupanca extends Conta {
 
     @Override
     public void sacar(double valor) {
-        if (getSaldo() >= valor) {
+        if (this.getSaldo() >= valor) {
             double juros = valor * 0.02;
-            setSaldo(getSaldo() - valor - juros);
+            this.setSaldo(this.getSaldo() - valor - juros);
             System.out.println("Seu saque foi realizado com sucesso!");
         } else {
             System.err.println("Não foi possível realizar a operação!");

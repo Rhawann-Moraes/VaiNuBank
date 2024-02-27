@@ -10,8 +10,8 @@ public class ContaCorrente extends Conta {
 
  @Override
  public void sacar(double valor) {
-     if (getSaldo() + limiteCredito >= valor) {
-         setSaldo(getSaldo() - valor);
+     if (this.getSaldo() + this.limiteCredito >= valor) {
+         this.setSaldo(this.getSaldo() - valor);
          System.out.println("Seu saque foi realizado com sucesso!");
      } else {
          System.err.println("Não foi possível realizar a operação!");
